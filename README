@@ -1,0 +1,11 @@
+as root copy user-management to /usr/local/bin
+cp ./user-management /usr/local/bin/user-management
+and give it execute permissions
+chmod 755 /usr/local/bin/user-management
+cp ./desktop_tool.py /usr/local/bin/desktop_tool.py
+and give it execute permissions
+chmod 755 /usr/local/bin/desktop_tool.py
+cp ./UM-set /usr/local/bin/UM-set
+and give it execute permissions
+chmod 755 /usr/local/bin/UM-set
+
