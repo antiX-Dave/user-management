@@ -30,6 +30,8 @@ import gtk
 import re
 import os
 import sys
+from desktop_tool import DesktopToolWidget
+from desktop_tool import get_icon as get_icon
 
 class Error:
     def __init__(self, error):
@@ -142,15 +144,21 @@ class Password:
         vbox.pack_start(buttonbox)
         buttonbox.show()
         
-        apply = gtk.Button(stock=gtk.STOCK_APPLY)
-        apply.connect("clicked", self.applyPassword)
-        buttonbox.add(apply)
-        apply.show()
+        okbutton = gtk.Button()
+        icon_button = DesktopToolWidget('Apply', 'dialog-ok', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        okbutton.add(icon_button)
+        okbutton.connect("clicked", self.applyPassword)
+        okbutton.set_size_request(100,50)
+        buttonbox.add(okbutton)
+        okbutton.show()
         
-        close = gtk.Button(stock=gtk.STOCK_CLOSE)
-        close.connect("clicked", lambda w: gtk.main_quit())
-        buttonbox.add(close)
-        close.show()
+        closebutton = gtk.Button()
+        icon_button = DesktopToolWidget('Close', 'dialog-close', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        closebutton.add(icon_button)
+        closebutton.connect("clicked", lambda w: gtk.main_quit())
+        closebutton.set_size_request(100,50)
+        buttonbox.add(closebutton)
+        closebutton.show()
 
         self.label = gtk.Label("Passwords")
 
@@ -269,15 +277,21 @@ class Add:
         vbox.pack_start(buttonbox)
         buttonbox.show()
         
-        apply = gtk.Button(stock=gtk.STOCK_APPLY)
-        apply.connect("clicked", self.applyNewUser)
-        buttonbox.add(apply)
-        apply.show()
+        okbutton = gtk.Button()
+        icon_button = DesktopToolWidget('Apply', 'dialog-ok', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        okbutton.add(icon_button)
+        okbutton.connect("clicked", self.applyNewUser)
+        okbutton.set_size_request(100,50)
+        buttonbox.add(okbutton)
+        okbutton.show()
         
-        close = gtk.Button(stock=gtk.STOCK_CLOSE)
-        close.connect("clicked", lambda w: gtk.main_quit())
-        buttonbox.add(close)
-        close.show()
+        closebutton = gtk.Button()
+        icon_button = DesktopToolWidget('Close', 'dialog-close', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        closebutton.add(icon_button)
+        closebutton.connect("clicked", lambda w: gtk.main_quit())
+        closebutton.set_size_request(100,50)
+        buttonbox.add(closebutton)
+        closebutton.show()
 
         self.label = gtk.Label("Add User")
 
@@ -402,15 +416,21 @@ class Repair:
         vbox.pack_start(buttonbox)
         buttonbox.show()
         
-        apply = gtk.Button(stock=gtk.STOCK_APPLY)
-        apply.connect("clicked", self.applyRepair)
-        buttonbox.add(apply)
-        apply.show()
+        okbutton = gtk.Button()
+        icon_button = DesktopToolWidget('Apply', 'dialog-ok', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        okbutton.add(icon_button)
+        okbutton.connect("clicked", self.applyRepair)
+        okbutton.set_size_request(100,50)
+        buttonbox.add(okbutton)
+        okbutton.show()
         
-        close = gtk.Button(stock=gtk.STOCK_CLOSE)
-        close.connect("clicked", lambda w: gtk.main_quit())
-        buttonbox.add(close)
-        close.show()
+        closebutton = gtk.Button()
+        icon_button = DesktopToolWidget('Close', 'dialog-close', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        closebutton.add(icon_button)
+        closebutton.connect("clicked", lambda w: gtk.main_quit())
+        closebutton.set_size_request(100,50)
+        buttonbox.add(closebutton)
+        closebutton.show()
 
         self.label = gtk.Label("Repair User")
 
@@ -482,15 +502,21 @@ class Remove:
         vbox.pack_start(buttonbox)
         buttonbox.show()
         
-        apply = gtk.Button(stock=gtk.STOCK_APPLY)
-        apply.connect("clicked", self.applyRemove)
-        buttonbox.add(apply)
-        apply.show()
+        okbutton = gtk.Button()
+        icon_button = DesktopToolWidget('Apply', 'dialog-ok', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        okbutton.add(icon_button)
+        okbutton.connect("clicked", self.applyRemove)
+        okbutton.set_size_request(100,50)
+        buttonbox.add(okbutton)
+        okbutton.show()
         
-        close = gtk.Button(stock=gtk.STOCK_CLOSE)
-        close.connect("clicked", lambda w: gtk.main_quit())
-        buttonbox.add(close)
-        close.show()
+        closebutton = gtk.Button()
+        icon_button = DesktopToolWidget('Close', 'dialog-close', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        closebutton.add(icon_button)
+        closebutton.connect("clicked", lambda w: gtk.main_quit())
+        closebutton.set_size_request(100,50)
+        buttonbox.add(closebutton)
+        closebutton.show()
 
         self.label = gtk.Label("Remove User")
         
@@ -590,20 +616,46 @@ class Recover:
         vbox.pack_start(buttonbox)
         buttonbox.show()
         
-        apply = gtk.Button(stock=gtk.STOCK_APPLY)
-        apply.connect("clicked", self.applyRecover)
-        buttonbox.add(apply)
-        apply.show()
+        okbutton = gtk.Button()
+        icon_button = DesktopToolWidget('Apply', 'dialog-ok', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        okbutton.add(icon_button)
+        okbutton.connect("clicked", self.applyRecover)
+        okbutton.set_size_request(100,50)
+        buttonbox.add(okbutton)
+        okbutton.show()
         
-        close = gtk.Button(stock=gtk.STOCK_CLOSE)
-        close.connect("clicked", lambda w: gtk.main_quit())
-        buttonbox.add(close)
-        close.show()
-
+        closebutton = gtk.Button()
+        icon_button = DesktopToolWidget('Close', 'dialog-close', 30, gtk.ORIENTATION_HORIZONTAL, wrap = 7)
+        closebutton.add(icon_button)
+        closebutton.connect("clicked", lambda w: gtk.main_quit())
+        closebutton.set_size_request(100,50)
+        buttonbox.add(closebutton)
+        closebutton.show()
+        
         self.label = gtk.Label("Recover User")       
         
 
 class NotebookExample:
+	
+    def make_icon(self,icon,label):
+		#Code from lagopus's script from #START# marker to #END# marker
+		########START##########
+        self.tab_box = gtk.HBox(False, 2)
+        self.tab_box.set_spacing(8)
+        tab_label = gtk.Label(label)
+
+        pixbuf = get_icon(icon, 48)
+        tab_icon = gtk.Image()
+        tab_icon.set_from_pixbuf(pixbuf)
+                
+        tab_icon.set_size_request(-1, 60)
+        self.tab_box.pack_start(tab_icon, False)
+        self.tab_box.pack_start(tab_label, False)
+
+        # needed, otherwise even calling show_all on the notebook won't
+        # make the hbox contents appear.
+        self.tab_box.show_all()
+        ###########END##########
 
     def delete(self, widget, event=None):
         gtk.main_quit()
@@ -630,15 +682,20 @@ class NotebookExample:
         self.notebook.show()
         
         #Start Password Class
-        self.notebook.append_page(Password().frame, Password().label)
+        self.make_icon("changes-allow","Password")
+        self.notebook.append_page(Password().frame, self.tab_box)
         
         #Start add/repair Class
-        self.notebook.append_page(Add().frame, Add().label)
-        self.notebook.append_page(Repair().frame, Repair().label)
+        self.make_icon("list-add","Add User")
+        self.notebook.append_page(Add().frame, self.tab_box)
+        self.make_icon("edit-undo","Repair User")
+        self.notebook.append_page(Repair().frame, self.tab_box)
         
         #Start remove/recover Class
-        self.notebook.append_page(Remove().frame, Remove().label)
-        self.notebook.append_page(Recover().frame, Recover().label)
+        self.make_icon("list-remove","Remove")
+        self.notebook.append_page(Remove().frame, self.tab_box)
+        self.make_icon("edit-redo","Recover")
+        self.notebook.append_page(Recover().frame, self.tab_box)
         
         self.notebook.set_current_page(0)
 
